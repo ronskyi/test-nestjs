@@ -1,0 +1,15 @@
+entity: Species
+parameters: {}
+items:
+  doberman:
+    id: '650cad45-51d7-4a74-8486-529939671a02'
+    label: 'Doberman'
+  сheshireСat:
+    id: 'd4b6ce86-24a3-49a3-899c-2dabaa35df71'
+    label: 'Cheshire cat'
+  elephant:
+    id: '691a0173-bf15-44e5-ba74-fc06de6c0e1b'
+    label: 'Elephant'
+  panther:
+    id: '08e6077d-aad7-486c-8d21-fd8a1e6e903e'
+    label: 'Panther'

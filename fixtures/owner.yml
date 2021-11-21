@@ -1,0 +1,19 @@
+entity: Owner
+parameters: {}
+items:
+  owner1:
+    id: '4c8674be-f60e-40f0-b74e-7c71d73401f1'
+    fullName: 'Sviatoslav Ronskyi'
+    address:
+      street: 'Kievska str'
+      city: 'Zhitomir'
+      country: 'Ukraine'
+      zipCode: '10014'
+  owner2:
+    id: '8cc8cbda-7337-4287-8e81-57e557618cea'
+    fullName: 'Vasiliy Pupkin'
+    address:
+      street: 'Baker str'
+      city: 'London'
+      country: 'Great Britain'
+      zipCode: 'NW1 6XE'

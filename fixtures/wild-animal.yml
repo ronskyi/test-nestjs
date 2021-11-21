@@ -1,0 +1,13 @@
+entity: WildAnimal
+parameters: {}
+items:
+  wild1:
+    id: '6e06fad7-ce8c-47d7-ab4a-378be542beb7'
+    birthday: '2016-02-01'
+    species: '@panther'
+    trackingId: 2536
+  wild2:
+    id: '8a953857-cfe8-45e7-8cf8-19143f80b6c8'
+    birthday: '2016-03-17'
+    species: '@elephant'
+    trackingId: 1926
