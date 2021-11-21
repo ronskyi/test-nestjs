@@ -1,0 +1,28 @@
+version: "3.7"
+services:
+  app:
+    user: node
+    build:
+      target: dev
+      context: .
+      args:
+        USERUID: 1000
+    container_name: medondo-back-app
+    working_dir: /app
+    command: /bin/sh -c "while sleep 1000; do :; done"
+    volumes:
+      - ..:/app
+    depends_on:
+      - db
+  db:
+    image: "postgres:11-alpine"
+    container_name: medondo-db
+    volumes:
+      - medondo-db-data:/var/lib/postgresql/data
+    environment:
+      POSTGRES_USER: postgres
+      POSTGRES_PASSWORD: postgres
+      POSTGRES_DB: medondo
+volumes:
+  medondo-db-data:
+    driver: local
