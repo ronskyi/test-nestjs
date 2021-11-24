@@ -4,15 +4,15 @@ items:
   pet1:
     id: 'cba05203-94d6-4536-9101-754e8985895f'
     birthday: '2010-01-01'
-    species: '@panther'
+    specie: '@panther'
     owner: '@owner1'
   pet2:
     id: 'b771e576-dd03-4614-90e0-53057d5969e3'
     birthday: '2014-05-12'
-    species: '@doberman'
+    specie: '@doberman'
     owner: '@owner1'
   pet3:
     id: 'a0c464ec-583b-43e0-8513-f63b09dc4131'
     birthday: '2012-11-10'
-    species: '@сheshireСat'
+    specie: '@сheshireСat'
     owner: '@owner2'

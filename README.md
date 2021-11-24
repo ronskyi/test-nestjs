@@ -1,4 +1,4 @@
-# Medondo test task (backend)
+# Animal management
 
-Test task for Medondo.
+Example NestJS application. 
 

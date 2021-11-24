@@ -1,8 +1,12 @@
 import { Animal } from './animal.entity';
-import { Column, Entity } from 'typeorm';
+import { ChildEntity, Column } from 'typeorm';
 
-@Entity()
+@ChildEntity()
 export class WildAnimal extends Animal {
-  @Column({ length: 50, nullable: true })
+  constructor() {
+    super();
+  }
+
+  @Column({ length: 50 })
   trackingId: string;
 }

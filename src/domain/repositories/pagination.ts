@@ -1,4 +1,4 @@
 export class Pagination {
-  limit: number = 10;
-  offset: number = 0;
+  limit = 10;
+  offset = 0;
 }

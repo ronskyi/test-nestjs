@@ -2,7 +2,7 @@ import { Length } from 'class-validator';
 import { Owner } from '../../domain/entities/owner.entity';
 import { Address } from '../../domain/entities/address';
 
-export class OwnerCreateRequest {
+export class OwnerDataRequest {
   @Length(0, 100)
   fullName: string;
 

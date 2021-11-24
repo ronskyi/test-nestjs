@@ -11,18 +11,18 @@ import {
   UsePipes,
   ValidationPipe,
 } from '@nestjs/common';
-import { OwnerService } from '../../domain/services/owner.service';
-import { Owner } from '../../domain/entities/owner.entity';
-import { OwnerDataRequest } from '../request/owner-data.request';
 import { CollectionResponse } from '../response/collection.response';
 import { BadRequestExceptionFactory } from '../../factories/bad-request-exception.factory';
 import { IdRequest } from '../request/id.request';
-import { OwnerSearchPaginatedRequest } from '../request/owner-search-paginated.request';
-import { OwnerSearchQuery } from '../../domain/queries/owner-search.query';
+import { SpecieService } from '../../domain/services/specie.service';
+import { Specie } from '../../domain/entities/specie.entity';
+import { SpecieDataRequest } from '../request/specie-data.request';
+import { SpecieSearchPaginatedRequest } from '../request/specie-search-paginated.request';
+import { SpecieSearchQuery } from '../../domain/queries/specie-search.query';
 
-@Controller('/owners')
-export class OwnerController {
-  constructor(private readonly ownerService: OwnerService) {}
+@Controller('/species')
+export class SpecieController {
+  constructor(private readonly specieService: SpecieService) {}
 
   @Get()
   @UsePipes(
@@ -34,17 +34,17 @@ export class OwnerController {
     }),
   )
   async find(
-    @Query() request: OwnerSearchPaginatedRequest,
-  ): Promise<CollectionResponse<Owner>> {
-    const query = new OwnerSearchQuery();
+    @Query() request: SpecieSearchPaginatedRequest,
+  ): Promise<CollectionResponse<Specie>> {
+    const query = new SpecieSearchQuery();
     const [items, total] = await Promise.all([
-      this.ownerService.getAll(
+      this.specieService.getAll(
         request.toQuery(query),
         request.toDomainPagination(),
       ),
-      this.ownerService.countAll(request.toQuery(query)),
+      this.specieService.countAll(request.toQuery(query)),
     ]);
-    return new CollectionResponse<Owner>(items, total);
+    return new CollectionResponse<Specie>(items, total);
   }
 
   @Post()
@@ -56,9 +56,9 @@ export class OwnerController {
       exceptionFactory: BadRequestExceptionFactory,
     }),
   )
-  create(@Body() data: OwnerDataRequest): Promise<Owner> {
-    const owner = data.toEntity(new Owner());
-    return this.ownerService.create(owner);
+  create(@Body() data: SpecieDataRequest): Promise<Specie> {
+    const owner = data.toEntity(new Specie());
+    return this.specieService.create(owner);
   }
 
   @Put(':id')
@@ -72,12 +72,12 @@ export class OwnerController {
   )
   async update(
     @Param() params: IdRequest,
-    @Body() data: OwnerDataRequest,
-  ): Promise<Owner> {
-    const dbOwner = await this.ownerService.getById(params.id);
-    const upOwner = new Owner();
-    upOwner.id = dbOwner.id;
-    return this.ownerService.update(data.toEntity(upOwner));
+    @Body() data: SpecieDataRequest,
+  ): Promise<Specie> {
+    const dbEntity = await this.specieService.getById(params.id);
+    const upEntity = new Specie();
+    upEntity.id = dbEntity.id;
+    return this.specieService.update(data.toEntity(upEntity));
   }
 
   @Get(':id')
@@ -89,8 +89,8 @@ export class OwnerController {
       exceptionFactory: BadRequestExceptionFactory,
     }),
   )
-  async getById(@Param() params: IdRequest): Promise<Owner> {
-    return this.ownerService.getById(params.id);
+  async getById(@Param() params: IdRequest): Promise<Specie> {
+    return this.specieService.getById(params.id);
   }
 
   @Delete(':id')
@@ -104,7 +104,7 @@ export class OwnerController {
     }),
   )
   async delete(@Param() params: IdRequest): Promise<void> {
-    const owner = await this.ownerService.getById(params.id);
-    return this.ownerService.deleteOwner(owner);
+    const entity = await this.specieService.getById(params.id);
+    return this.specieService.deleteOwner(entity);
   }
 }

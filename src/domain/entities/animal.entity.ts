@@ -1,4 +1,4 @@
-import { Species } from './species.entity';
+import { Specie } from './specie.entity';
 import {
   Column,
   Entity,
@@ -9,15 +9,15 @@ import {
 
 @Entity()
 @TableInheritance({ column: { type: 'varchar', name: 'type' } })
-export class Animal {
+export abstract class Animal {
   @PrimaryGeneratedColumn('uuid')
   id: string;
 
   @Column()
   birthday: Date;
 
-  @ManyToOne(() => Species, { nullable: false })
-  species: Species;
+  @ManyToOne(() => Specie, { nullable: false })
+  specie: Specie;
 
   @Column({ default: false })
   vaccinated: boolean;

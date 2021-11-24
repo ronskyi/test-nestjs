@@ -1,9 +1,13 @@
 import { Animal } from './animal.entity';
 import { Owner } from './owner.entity';
-import { Entity, ManyToOne } from 'typeorm';
+import { ChildEntity, ManyToOne } from 'typeorm';
 
-@Entity()
+@ChildEntity()
 export class Pet extends Animal {
-  @ManyToOne(() => Owner, { nullable: true })
+  constructor() {
+    super();
+  }
+
+  @ManyToOne(() => Owner)
   owner: Owner;
 }

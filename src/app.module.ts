@@ -4,24 +4,19 @@ import { TypeOrmModule } from '@nestjs/typeorm';
 import { typeOrmFactory } from './factories/typeorm.factory';
 import { Animal } from './domain/entities/animal.entity';
 import { Owner } from './domain/entities/owner.entity';
-import { Species } from './domain/entities/species.entity';
+import { Specie } from './domain/entities/specie.entity';
 import { Pet } from './domain/entities/pet.entity';
 import { WildAnimal } from './domain/entities/wild-aninal.entity';
-import { IOwnerRepository } from './domain/repositories/owner.repository.interface';
-import { OwnerGateway } from './infrastructure/repositories/owner-gateway.service';
+import { repositoryProviders } from './infrastructure/repositories';
 import { OwnerService } from './domain/services/owner.service';
 import { OwnerController } from './resources/controllers/owner.controller';
+import { AnimalDataTransformer } from './resources/transformers/animal-data.transformer';
+import { AnimalService } from './domain/services/animal.service';
+import { SpecieService } from './domain/services/specie.service';
+import { AnimalController } from './resources/controllers/animal.controller';
+import { SpecieController } from './resources/controllers/specie.controller';
 
-const repositories = [
-  {
-    provide: IOwnerRepository,
-    useClass: OwnerGateway
-  }
-];
-
-const domainServices = [
-  OwnerService,
-];
+const domainServices = [OwnerService, AnimalService, SpecieService];
 
 @Module({
   imports: [
@@ -33,12 +28,9 @@ const domainServices = [
       inject: [ConfigService],
       useFactory: typeOrmFactory,
     }),
-    TypeOrmModule.forFeature([Owner, Species, Animal, Pet, WildAnimal]),
+    TypeOrmModule.forFeature([Owner, Specie, Animal, Pet, WildAnimal]),
   ],
-  controllers: [OwnerController],
-  providers: [
-    ...repositories,
-    ...domainServices,
-  ],
+  controllers: [AnimalController, SpecieController, OwnerController],
+  providers: [...repositoryProviders, ...domainServices, AnimalDataTransformer],
 })
 export class AppModule {}

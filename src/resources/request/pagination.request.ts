@@ -3,13 +3,13 @@ import { Expose, Transform } from 'class-transformer';
 import { Pagination } from '../../domain/repositories/pagination';
 
 export class PaginationRequest {
-  @Expose({name: 'page'})
+  @Expose({ name: 'page' })
   @Transform((p) => (p.value !== undefined ? Number(p.value) : undefined))
   @IsNumber()
   @IsPositive()
   pageNumber: number;
 
-  @Expose({name: 'page_size'})
+  @Expose({ name: 'page_size' })
   @Transform((p) => (p.value !== undefined ? Number(p.value) : undefined))
   @IsNumber()
   @IsPositive()
