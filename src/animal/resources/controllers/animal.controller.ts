@@ -12,7 +12,7 @@ import {
   ValidationPipe,
 } from '@nestjs/common';
 import { CollectionResponse } from '../response/collection.response';
-import { BadRequestExceptionFactory } from '../../../@factories/bad-request-exception.factory';
+import { BadRequestExceptionFactory } from '../../../@resources/errors/bad-request-exception.factory';
 import { IdRequest } from '../request/id.request';
 import { AnimalService } from '../../domain/services/animal.service';
 import { Animal } from '../../domain/entities/animal.entity';

@@ -15,7 +15,7 @@ import { OwnerService } from '../../domain/services/owner.service';
 import { Owner } from '../../domain/entities/owner.entity';
 import { OwnerDataRequest } from '../request/owner-data.request';
 import { CollectionResponse } from '../response/collection.response';
-import { BadRequestExceptionFactory } from '../../../@factories/bad-request-exception.factory';
+import { BadRequestExceptionFactory } from '../../../@resources/errors/bad-request-exception.factory';
 import { IdRequest } from '../request/id.request';
 import { OwnerSearchPaginatedRequest } from '../request/owner-search-paginated.request';
 import { OwnerSearchQuery } from '../../domain/queries/owner-search.query';

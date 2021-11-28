@@ -5,7 +5,7 @@ import {
   HttpStatus,
 } from '@nestjs/common';
 import { Response } from 'express';
-import { ObjectNotFoundError } from '../errors/object-not-found.error';
+import { ObjectNotFoundError } from '../../@domain/errors/object-not-found.error';
 
 @Catch(ObjectNotFoundError)
 export class NotFoundErrorFilter implements ExceptionFilter {

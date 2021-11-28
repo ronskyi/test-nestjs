@@ -2,9 +2,9 @@ import { Injectable } from '@nestjs/common';
 import { IOwnerRepository } from '../repositories/owner.repository.interface';
 import { Owner } from '../entities/owner.entity';
 import { validate } from 'class-validator';
-import { DomainValidationError } from '../../../@common/errors/domain-validation.error';
+import { DomainValidationError } from '../../../@domain/errors/domain-validation.error';
 import { Pagination } from '../repositories/pagination';
-import { ObjectNotFoundError } from '../../../@common/errors/object-not-found.error';
+import { ObjectNotFoundError } from '../../../@domain/errors/object-not-found.error';
 import { OwnerSearchQuery } from '../queries/owner-search.query';
 
 @Injectable()
