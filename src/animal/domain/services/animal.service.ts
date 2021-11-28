@@ -1,8 +1,8 @@
 import { Injectable } from '@nestjs/common';
 import { validate } from 'class-validator';
-import { DomainValidationError } from '../errors/domain-validation.error';
+import { DomainValidationError } from '../../../@common/errors/domain-validation.error';
 import { Pagination } from '../repositories/pagination';
-import { ObjectNotFoundError } from '../errors/object-not-found.error';
+import { ObjectNotFoundError } from '../../../@common/errors/object-not-found.error';
 import { IAnimalRepository } from '../repositories/animal.repository.interface';
 import { Animal } from '../entities/animal.entity';
 import { IWildAnimalRepository } from '../repositories/wild-animal.repository.interface';

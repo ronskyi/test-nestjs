@@ -5,7 +5,7 @@ import {
   HttpStatus,
 } from '@nestjs/common';
 import { Response } from 'express';
-import { DomainValidationError } from '../../domain/errors/domain-validation.error';
+import { DomainValidationError } from '../errors/domain-validation.error';
 
 @Catch(DomainValidationError)
 export class ConflictErrorFilter implements ExceptionFilter {

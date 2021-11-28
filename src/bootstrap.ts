@@ -1,7 +1,7 @@
 import { INestApplication } from '@nestjs/common';
 import { ConfigService } from '@nestjs/config';
-import { NotFoundErrorFilter } from './resources/filters/not-fount-error.filter';
-import { ConflictErrorFilter } from './resources/filters/conflict-error.filter';
+import { NotFoundErrorFilter } from './@common/filters/not-fount-error.filter';
+import { ConflictErrorFilter } from './@common/filters/conflict-error.filter';
 export async function bootstrap(app: INestApplication): Promise<void> {
   app.useLogger(['log', 'warn', 'error']);
 
