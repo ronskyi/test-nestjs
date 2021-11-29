@@ -7,7 +7,7 @@ services:
       context: .
       args:
         USERUID: 1000
-    container_name: medondo-back-app
+    container_name: animal-manager-app
     working_dir: /app
     command: /bin/sh -c "while sleep 1000; do :; done"
     volumes:
@@ -16,13 +16,13 @@ services:
       - db
   db:
     image: "postgres:11-alpine"
-    container_name: medondo-db
+    container_name: animal-manager-db
     volumes:
-      - medondo-db-data:/var/lib/postgresql/data
+      - animal-manager-db-data:/var/lib/postgresql/data
     environment:
       POSTGRES_USER: postgres
       POSTGRES_PASSWORD: postgres
       POSTGRES_DB: medondo
 volumes:
-  medondo-db-data:
+  animal-manager-db-data:
     driver: local

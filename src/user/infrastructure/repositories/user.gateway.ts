@@ -4,7 +4,7 @@ import { ThrowsUniqueViolation } from '../../../@infrastructure/errors/throws-un
 import { IUserRepository } from '../../domain/repositories/user.repository.interface';
 import { InjectRepository } from '@nestjs/typeorm';
 
-export class UserGateway  implements IUserRepository {
+export class UserGateway implements IUserRepository {
   constructor(
     @InjectRepository(User)
     private readonly repository: Repository<User>,

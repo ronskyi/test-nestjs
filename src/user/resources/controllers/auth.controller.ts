@@ -13,18 +13,13 @@ import { ReqUser } from '../../../@resources/request/user.decorator';
 
 @Controller()
 export class AuthController {
-  constructor(private jwtService: JwtService) {
-  }
+  constructor(private jwtService: JwtService) {}
 
   @UseInterceptors(ClassSerializerInterceptor)
   @Post('login')
   @UseGuards(JsonAuthGuard)
-  async login(
-    @ReqUser() user: User,
-  ): Promise<TokenLoginResponse> {
-    return new TokenLoginResponse(
-      await this.createAccessToken(user),
-    );
+  async login(@ReqUser() user: User): Promise<TokenLoginResponse> {
+    return new TokenLoginResponse(await this.createAccessToken(user));
   }
 
   private async createAccessToken(user: User): Promise<string> {

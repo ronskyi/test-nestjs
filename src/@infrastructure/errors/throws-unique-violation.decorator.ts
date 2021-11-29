@@ -18,7 +18,7 @@ export function ThrowsUniqueViolation(
   propertyKey: string,
   descriptor: PropertyDescriptor,
 ): void {
-  Throws(function(error): Error {
+  Throws(function (error): Error {
     if (isUniqueViolation(error)) {
       throw new UniqueViolationError();
     }

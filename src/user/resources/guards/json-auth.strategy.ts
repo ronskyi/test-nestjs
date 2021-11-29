@@ -7,7 +7,7 @@ import { User } from '../../domain/entities/user.entity';
 @Injectable()
 export class JsonAuthStrategy extends PassportStrategy(Strategy, 'json') {
   constructor(private userService: UserService) {
-    super({ usernameProp: 'email', passwordProp: 'password' });
+    super();
   }
 
   async validate(userEmail: string, password: string): Promise<User> {

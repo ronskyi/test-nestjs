@@ -10,18 +10,13 @@ import { IUserRepository } from '../repositories/user.repository.interface';
 
 @Injectable()
 export class UserService {
-  constructor(
-    private userRepository: IUserRepository,
-  ) {
-  }
+  constructor(private userRepository: IUserRepository) {}
 
-  public async create(
-    user: User,
-  ): Promise<User> {
+  public async create(user: User): Promise<User> {
     user.creationDate = new Date();
     user.password = await bcrypt.hash(user.password, 10);
 
-    const errors = await validate(user, {groups: ['createUser']});
+    const errors = await validate(user, { groups: ['createUser'] });
     if (errors.length > 0) {
       throw new DomainValidationError(errors);
     }
@@ -37,10 +32,7 @@ export class UserService {
 
   public async login(email: string, password: string): Promise<User | null> {
     const user = await this.userRepository.findOneByEmail(email);
-    if (
-      user &&
-      (await bcrypt.compare(password, user.password))
-    ) {
+    if (user && (await bcrypt.compare(password, user.password))) {
       return user;
     }
     return null;

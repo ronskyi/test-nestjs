@@ -4,6 +4,6 @@ items:
   user1:
     id: 'cba05203-94d6-4536-9101-754e8985895f'
     email: 'test@test.com'
-    password: '$2a$10$LD4vHJV2A8voCpTPgGVP..ns3RyGXZYH8idJs7eOYp91LKGR0NqmK'
+    password: '$2a$10$8l2MmYvQvVDjFm9PBAk3TeCkbYlIzy0ZE6lsPn0Cqzb0ZEkPLQa/S'
     roles: ['admin']
     creationDate: '2021-11-28T09:00:00.000Z'

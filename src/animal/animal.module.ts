@@ -17,9 +17,7 @@ import { SpecieController } from './resources/controllers/specie.controller';
 const domainServices = [OwnerService, AnimalService, SpecieService];
 
 @Module({
-  imports: [
-    TypeOrmModule.forFeature([Owner, Specie, Animal, Pet, WildAnimal]),
-  ],
+  imports: [TypeOrmModule.forFeature([Owner, Specie, Animal, Pet, WildAnimal])],
   controllers: [AnimalController, SpecieController, OwnerController],
   providers: [...repositoryProviders, ...domainServices, AnimalDataTransformer],
 })

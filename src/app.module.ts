@@ -16,8 +16,7 @@ import { UserModule } from './user/user.module';
       useFactory: typeOrmFactory,
     }),
     UserModule,
-    AnimalModule
+    AnimalModule,
   ],
 })
-export class AppModule {
-}
+export class AppModule {}

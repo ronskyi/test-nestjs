@@ -4,6 +4,6 @@ import { UserGateway } from './user.gateway';
 export const repositoryProviders = [
   {
     provide: IUserRepository,
-    useClass: UserGateway
-  }
+    useClass: UserGateway,
+  },
 ];
